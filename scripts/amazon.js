@@ -78,5 +78,19 @@ document.querySelectorAll(".js-add-to-cart")
             })
 
             console.log(cart)
+            refreshCartQuantity()
         })
     })
+
+
+let cartQuantity = document.querySelector(".js-cart-quantity")
+
+function refreshCartQuantity () {
+    let totalQuantity = 0
+
+    cart.forEach((item) => {
+        totalQuantity += item.quantity
+    })
+
+    cartQuantity.innerHTML = totalQuantity
+}
