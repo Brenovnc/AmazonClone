@@ -77,7 +77,6 @@ document.querySelectorAll(".js-add-to-cart")
                 quantity: 1
             })
 
-            console.log(cart)
             refreshCartQuantity()
         })
     })
