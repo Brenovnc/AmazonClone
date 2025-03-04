@@ -16,6 +16,16 @@ function saveToStorage() {
     localStorage.setItem('cart', JSON.stringify(cart))
 }
 
+export function updateCartQuantity () {
+    let totalQuantity = 0
+
+    cart.forEach((item) => {
+        totalQuantity += item.quantity
+    })
+
+    return totalQuantity
+}
+
 export function addToCart(productId) {
     let alreadyExistItem = false
 
