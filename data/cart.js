@@ -1,7 +1,5 @@
 export let cart = JSON.parse(localStorage.getItem('cart')) 
 
-console.log(cart)
-
 if (!cart) {
     cart =  [ {
         productId: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
@@ -24,6 +22,15 @@ export function updateCartQuantity () {
     })
 
     return totalQuantity
+}
+
+export function updateQuantityCheckout(productId, newQuantity) {
+    cart.forEach((item) => {
+        if(item.productId === productId) {
+            item.quantity = Number(newQuantity)
+        }
+    })
+    saveToStorage();
 }
 
 export function addToCart(productId) {
