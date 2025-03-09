@@ -3,7 +3,19 @@
   dessa div, que identifica e apresenta o produto ao consumidor. Note que o preço está em centavos, para evitar o cálculo
   de valores decimais*/ 
 
-export const products = [
+export function getProduct(productId) {
+  let matchingProduct
+        
+  products.forEach((product) => { 
+    if(product.id === productId) {
+        matchingProduct = product
+    }
+  });
+
+  return matchingProduct
+}
+
+  export const products = [
   {
     id: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
     image: "images/products/athletic-cotton-socks-6-pairs.jpg",
