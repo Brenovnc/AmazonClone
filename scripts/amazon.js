@@ -6,6 +6,10 @@ let productsHTML = '';
 const cartQuantity = document.querySelector(".js-cart-quantity")
 cartQuantity.innerHTML = updateCartQuantity() || '';
 
+export default function re() {
+  console.log('re')
+}
+
 products.forEach((product) => {
   productsHTML += `
     <div class="product-container">
