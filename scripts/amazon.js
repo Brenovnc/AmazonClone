@@ -6,10 +6,6 @@ let productsHTML = '';
 const cartQuantity = document.querySelector(".js-cart-quantity")
 cartQuantity.innerHTML = updateCartQuantity() || '';
 
-export default function re() {
-  console.log('re')
-}
-
 products.forEach((product) => {
   productsHTML += `
     <div class="product-container">
@@ -24,14 +20,14 @@ products.forEach((product) => {
 
       <div class="product-rating-container">
         <img class="product-rating-stars"
-          src=images/ratings/rating-${product.rating.stars*10}.png>
+          src=${product.getStarsUrl()}>
         <div class="product-rating-count link-primary">
           ${product.rating.count}
         </div>
       </div>
 
       <div class="product-price">
-        ${formatCurrency(product.priceCents)}
+        ${product.getPrice()}
       </div>
 
       <div class="product-quantity-container qtd-product">
