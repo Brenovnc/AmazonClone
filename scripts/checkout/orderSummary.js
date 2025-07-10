@@ -10,10 +10,6 @@ const today = dayjs();
 const deliveryDate = today.add(7, 'days')
 console.log(deliveryDate.format('dddd, MMMM D'))
 
-export default function re() {
-    console.log('re')
-}
-
 export function renderOrderSummary() {
 
     const listCartItems = document.querySelector(".js-order-summary"); 
@@ -49,7 +45,7 @@ export function renderOrderSummary() {
                         ${matchingProduct.name}
                     </div>
                     <div class="product-price">
-                        ${formatCurrency(matchingProduct.priceCents)}
+                        ${matchingProduct.getPrice()}
                     </div>
                     <div class="product-quantity">
                     <span>

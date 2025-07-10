@@ -3,7 +3,7 @@
   dessa div, que identifica e apresenta o produto ao consumidor. Note que o preço está em centavos, para evitar o cálculo
   de valores decimais*/
 
-import { formatCurrency } from "../scripts/utils/money";
+import { formatCurrency } from "../scripts/utils/money.js";
 
 export function getProduct(productId) {
     let matchingProduct
@@ -37,7 +37,7 @@ class Products {
     }
 
     getPrice() {
-        return formatCurrency(this.priceCents)
+        return `$${formatCurrency(this.priceCents)}`
     }
 }
 
@@ -703,5 +703,3 @@ export const products = [
 ].map((productsDetails) => {
     return new Products(productsDetails);
 });
-
-console.log(products)
