@@ -753,20 +753,20 @@ loadProductsFetch().then(() => {
     console.log('next step')
 });
 
-// export function loadProducts(fun) {
-//     const xhr = new XMLHttpRequest()
-//     xhr.addEventListener('load', () => {
-//         products = JSON.parse(xhr.response).map((productsDetails) => {
-//             if(productsDetails.type === "clothing") {
-//                 return new Clothing(productsDetails);
-//             }
-//             return new Products(productsDetails);
-//         });
+export function loadProducts(fun) {
+    const xhr = new XMLHttpRequest()
+    xhr.addEventListener('load', () => {
+        products = JSON.parse(xhr.response).map((productsDetails) => {
+            if(productsDetails.type === "clothing") {
+                return new Clothing(productsDetails);
+            }
+            return new Products(productsDetails);
+        });
 
-//         console.log("load products")
-//         fun();
-//     })
+        console.log("load products")
+        fun();
+    })
     
-//     xhr.open('GET', 'https://supersimplebackend.dev/products')
-//     xhr.send()
-// }
+    xhr.open('GET', 'https://supersimplebackend.dev/products')
+    xhr.send()
+}

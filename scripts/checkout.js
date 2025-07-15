@@ -6,19 +6,36 @@ import { renderPaymentSummary } from "./checkout/paymentSummary.js";
 import { loadCart } from "../data/cart.js";
 import { loadProductsFetch } from "../data/products.js";
 
-Promise.all([
-    loadProductsFetch(),
-    new Promise((resolve) => {
+async function loadPage() {
+    await loadProductsFetch()
+
+    // Como loadCart é uma função de callback, precisamos encapcular ela em uma promise
+    // pois o await só espera quando o operando é uma promise
+    // ou seja, await não faz nada com callback
+    await new Promise((resolve) => {
         loadCart(() => {
             resolve();
         })
     })
 
-]).then((values) => {
-    console.log(values)
     renderOrderSummary()
     renderPaymentSummary()  
-})
+}
+loadPage()
+
+// Promise.all([
+//     loadProductsFetch(),
+//     new Promise((resolve) => {
+//         loadCart(() => {
+//             resolve();
+//         })
+//     })
+
+// ]).then((values) => {
+//     console.log(values)
+//     renderOrderSummary()
+//     renderPaymentSummary()  
+// })
 
 
 
